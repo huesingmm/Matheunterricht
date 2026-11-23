@@ -1,0 +1,65 @@
+:root {
+  --bg: #f7f8fa;
+  --karte: #ffffff;
+  --text: #1d2330;
+  --leise: #5b6475;
+  --akzent: #2457c5;
+  --rand: #dde2ea;
+  --richtig: #1f7a3f;
+  --falsch: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171d;
+    --karte: #1d222b;
+    --text: #e6e9ef;
+    --leise: #a3abba;
+    --akzent: #7ea2ff;
+    --rand: #313846;
+    --richtig: #5cc27d;
+    --falsch: #f08a82;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+header.seite { margin-bottom: 28px; }
+header.seite h1 { margin: 0 0 4px; font-size: 1.9rem; }
+header.seite p { margin: 0; color: var(--leise); }
+nav.pfad { font-size: .9rem; margin-bottom: 12px; }
+a { color: var(--akzent); }
+.raster { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+a.kachel {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--karte); border: 1px solid var(--rand); border-radius: 12px;
+  padding: 18px 20px; transition: border-color .15s, transform .15s;
+}
+a.kachel:hover { border-color: var(--akzent); transform: translateY(-2px); }
+a.kachel h2, a.kachel h3 { margin: 0 0 6px; color: var(--akzent); }
+a.kachel p { margin: 0; color: var(--leise); font-size: .95rem; }
+.hinweis { color: var(--leise); font-style: italic; }
+section.block {
+  background: var(--karte); border: 1px solid var(--rand); border-radius: 12px;
+  padding: 18px 20px; margin: 18px 0;
+}
+/* Aufgaben */
+.aufgabe { margin: 14px 0; }
+.aufgabe input {
+  font: inherit; padding: 6px 10px; width: 9em; max-width: 100%;
+  border: 1px solid var(--rand); border-radius: 8px; background: var(--bg); color: var(--text);
+}
+.aufgabe button {
+  font: inherit; padding: 6px 14px; margin-left: 6px; border: 0; border-radius: 8px;
+  background: var(--akzent); color: #fff; cursor: pointer;
+}
+.aufgabe .rueckmeldung { margin-left: 10px; font-weight: 600; }
+.aufgabe.richtig .rueckmeldung { color: var(--richtig); }
+.aufgabe.falsch .rueckmeldung { color: var(--falsch); }
+.geogebra { width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--rand); border-radius: 12px; }
+footer { margin-top: 48px; font-size: .85rem; color: var(--leise); }
